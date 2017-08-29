@@ -26,8 +26,8 @@ class Rvc < Formula
     (buildpath/"m4").mkpath
 
     system "autoreconf", "-ivf"
-    system "./configure", "--prefix=/opt/local"
-    system "sudo", "make", "install"
+    system "./configure", "--prefix=#{prefix}"
+    system "make", "install"
   end
 
   test do
