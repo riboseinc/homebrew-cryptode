@@ -45,16 +45,6 @@ You can also install via URL:
 brew install --HEAD https://raw.githubusercontent.com/riboseinc/homebrew-rvc/master/rvc.rb
 ```
 
-## rvc HEAD requires botan HEAD
-
-The `rvc` HEAD formula must be used with `botan` HEAD. See the
-Troubleshooting section if you run into `botan` problems.
-
-``` sh
-brew unlink botan
-brew install --HEAD botan
-```
-
 ## Acceptable Formulae
 
 You can read Homebrew’s Acceptable Formulae document [here](https://github.com/Homebrew/brew/blob/master/docs/Acceptable-Formulae.md).
@@ -65,17 +55,6 @@ First, please run `brew update` and `brew doctor`.
 
 Second, read the [Troubleshooting Checklist](https://github.com/Homebrew/brew/blob/master/docs/Troubleshooting.md#troubleshooting).
 
-### Botan
-
-If you got 'Botan build is missing a required feature' during the configure then you need to install botan using the --HEAD option:
-
-``` sh
-brew unlink botan
-brew install --HEAD botan
-```
-
-**If you don’t read these it will take us far longer to help you with your problem.**
-
 ## More Documentation
 
 `brew help`, `man brew` or check [our documentation](https://github.com/Homebrew/brew/tree/master/docs#readme).
@@ -83,4 +62,3 @@ brew install --HEAD botan
 ## License
 
 Code is under the [BSD 2 Clause license](https://github.com/Homebrew/brew/tree/master/LICENSE.txt).
-
