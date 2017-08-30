@@ -11,7 +11,6 @@ class Rvc < Formula
   depends_on "pkg-config" => :build
   depends_on "json-c"
   depends_on "openvpn"
-  depends_on "botan"
 
   devel do
     version '0.9.0'
