@@ -28,16 +28,18 @@ class Rvc < Formula
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
     system "cp", "plist/com.ribose.rvd.plist", "/usr/local/bin"
+    system "cp", "conf/rvd.json", "/usr/local/etc"
   end
 
   def caveats; <<-EOS.undent
     rvc requires to be installed in `/opt` and requires root privileges to start
     run:
-    `sudo mkdir -m 500 -p /opt/rvc/bin /opt/rvc/etc/vpn.d`
-    `sudo chown root:wheel -R /opt/rvc`
+    `sudo mkdir -m 500 -p /opt/rvc/bin /opt/rvc/etc/vpn.d /opt/openvpn/bin`
+    `sudo chown root:wheel -R /opt/rvc /opt/openvpn/`
     `sudo install -m 500 -g wheel -o root /usr/local/bin/rvc /usr/local/bin/rvd /opt/rvc/bin`
     `sudo install -m 500 -g wheel -o root /usr/local/etc/rvd.json /opt/rvc/etc`
     `sudo install -m 500 -g wheel -o root /usr/local/bin/com.ribose.rvd.plist /Library/LaunchAgents`
+    `sudo install -m 500 -g wheel -o root /usr/local/bin/openvpn /opt/openvpn/bin`
     EOS
   end
 
