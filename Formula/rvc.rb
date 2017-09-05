@@ -29,6 +29,16 @@ class Rvc < Formula
     system "make", "install"
   end
 
+  def caveats; <<-EOS.undent
+    rvc requires to be installed in `/opt` and requires root privileges to start
+    run:
+    `sudo mkdir -m 500 -p /opt/rvc/bin /opt/rvc/etc/vpn.d`
+    `sudo chown root:wheel -R /opt/rvc`
+    `sudo install -m 500 -g wheel -o root /usr/local/bin/rvc /usr/local/bin/rvd /usr/local/bin/rvd.plist /opt/rvc/bin`
+    `sudo install -m 500 -g wheel -o root /usr/local/etc/rvd.json /opt/rvc/etc`
+    EOS
+  end
+
   test do
     system "rvc", "--version"
   end
