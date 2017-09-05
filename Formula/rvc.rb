@@ -27,21 +27,21 @@ class Rvc < Formula
     system "autoreconf", "-ivf"
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
-    system "cp", "plist/com.ribose.rvd.plist", "/usr/local/bin"
-    replace_cmd = "sed s/501/$(id -u)/g conf/rvd.json > /usr/local/etc/rvd.json"
+    system "cp", "../plist/com.ribose.rvd.plist", "/usr/local/bin"
+    replace_cmd = "sed s/501/$(id -u)/g ../conf/rvd.json > /usr/local/etc/rvd.json"
     system(replace_cmd)
   end
 
   def caveats; <<-EOS.undent
     rvc requires to be installed in `/opt` and requires root privileges to start
     run:
-    `sudo mkdir -m 500 -p /opt/rvc/bin /opt/rvc/etc/vpn.d /opt/openvpn/bin`
+    `sudo mkdir -m 500 -p /opt/rvc/bin /opt/rvc/etc/vpn.d /opt/openvpn/sbin`
     `sudo chown root:wheel -R /opt/rvc /opt/openvpn/`
     `sudo install -m 500 -g wheel -o root /usr/local/bin/rvc /usr/local/bin/rvd /opt/rvc/bin`
     `sudo install -m 500 -g wheel -o root /usr/local/etc/rvd.json /opt/rvc/etc`
     `sudo install -m 500 -g wheel -o root /usr/local/bin/com.ribose.rvd.plist /Library/LaunchAgents`
-    `sudo install -m 500 -g wheel -o root /usr/local/bin/openvpn /opt/openvpn/bin`
-    `sudo launctl todo`
+    `sudo install -m 500 -g wheel -o root /usr/local/sbin/openvpn /opt/openvpn/sbin`
+    `sudo launchctl todo`
     EOS
   end
 
