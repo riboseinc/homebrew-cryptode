@@ -27,6 +27,7 @@ class Rvc < Formula
     system "autoreconf", "-ivf"
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
+    system "cp", "plist/com.ribose.rvd.plist", "/usr/local/bin"
   end
 
   def caveats; <<-EOS.undent
@@ -34,8 +35,9 @@ class Rvc < Formula
     run:
     `sudo mkdir -m 500 -p /opt/rvc/bin /opt/rvc/etc/vpn.d`
     `sudo chown root:wheel -R /opt/rvc`
-    `sudo install -m 500 -g wheel -o root /usr/local/bin/rvc /usr/local/bin/rvd /usr/local/bin/rvd.plist /opt/rvc/bin`
+    `sudo install -m 500 -g wheel -o root /usr/local/bin/rvc /usr/local/bin/rvd /opt/rvc/bin`
     `sudo install -m 500 -g wheel -o root /usr/local/etc/rvd.json /opt/rvc/etc`
+    `sudo install -m 500 -g wheel -o root /usr/local/bin/com.ribose.rvd.plist /Library/LaunchAgents`
     EOS
   end
 
