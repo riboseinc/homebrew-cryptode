@@ -28,9 +28,7 @@ class Rvc < Formula
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
     system "pwd"
-    system "ls", "-la"
-    system "ls", "-la", "plist/com.ribose.rvd.plist"
-    #system "cp", "plist/com.ribose.rvd.plist", "/usr/local/bin"
+    system "cp", "plist/com.ribose.rvd.plist", "/usr/local/bin"
     replace_cmd = "sed s/501/$(id -u)/g conf/rvd.json > /usr/local/etc/rvd.json"
     system(replace_cmd)
   end
@@ -44,7 +42,7 @@ class Rvc < Formula
     `sudo install -m 500 -g wheel -o root /usr/local/etc/rvd.json /opt/rvc/etc`
     `sudo install -m 500 -g wheel -o root /usr/local/bin/com.ribose.rvd.plist /Library/LaunchAgents`
     `sudo install -m 500 -g wheel -o root /usr/local/sbin/openvpn /opt/openvpn/sbin`
-    `sudo launchctl todo`
+    `sudo launchctl launch /Library/LaunchAgents/com.ribose.rvd.plist`
     EOS
   end
 
