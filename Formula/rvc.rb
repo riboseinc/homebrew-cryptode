@@ -29,6 +29,8 @@ class Rvc < Formula
     system "make", "install"
     system "cp", "plist/com.ribose.rvd.plist", "/usr/local/bin"
     system "cp", "conf/rvd.json", "/usr/local/etc"
+    replace_cmd = "sed s/501/$(id -u)/g conf/rvd.json > /usr/local/etc/rvd.json"
+    system(replace_cmd)
   end
 
   def caveats; <<-EOS.undent
@@ -40,6 +42,7 @@ class Rvc < Formula
     `sudo install -m 500 -g wheel -o root /usr/local/etc/rvd.json /opt/rvc/etc`
     `sudo install -m 500 -g wheel -o root /usr/local/bin/com.ribose.rvd.plist /Library/LaunchAgents`
     `sudo install -m 500 -g wheel -o root /usr/local/bin/openvpn /opt/openvpn/bin`
+    `sudo launctl todo`
     EOS
   end
 
