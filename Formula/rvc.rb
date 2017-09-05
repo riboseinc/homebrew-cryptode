@@ -29,7 +29,8 @@ class Rvc < Formula
     system "make", "install"
     system "pwd"
     system "ls", "-la"
-    system "cp", "plist/com.ribose.rvd.plist", "/usr/local/bin"
+    system "ls", "-la", "plist/com.ribose.rvd.plist"
+    #system "cp", "plist/com.ribose.rvd.plist", "/usr/local/bin"
     replace_cmd = "sed s/501/$(id -u)/g conf/rvd.json > /usr/local/etc/rvd.json"
     system(replace_cmd)
   end
