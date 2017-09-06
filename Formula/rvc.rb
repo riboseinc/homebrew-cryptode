@@ -30,8 +30,8 @@ class Rvc < Formula
 
     # prefix.install "plist/com.ribose.rvd.plist"
     # (prefix+"com.ribose.rvd.plist").chmod 0644
-    inreplace "conf/rvd.json", "501", `id -u`
-		(etc/"rvd").install "conf/rvd.json"
+    inreplace "conf/rvd.json", /501/, `id -u`.chomp
+    (etc/"rvd").install "conf/rvd.json"
   end
 
   plist_options startup: false
@@ -81,7 +81,7 @@ class Rvc < Formula
     rvc requires to be installed in `/opt` and requires root privileges to start
     run:
       sudo mkdir -m 700 -p #{target_prefix}/bin #{opt_openvpn}/sbin
-      sudo mkdir -m 700 -p #{target_prefix}/etc/vpn.d
+      sudo mkdir -m 755 -p #{target_prefix}/etc/vpn.d
       sudo chown -R root:wheel #{target_prefix} #{opt_openvpn}/
       sudo install -m 500 -g wheel -o root #{bin/"rvd"} #{target_prefix}/bin
       sudo install -m 600 -g wheel -o root #{etc/"rvd/rvd.json"} #{target_prefix}/etc
