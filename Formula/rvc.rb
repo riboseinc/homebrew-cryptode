@@ -31,6 +31,11 @@ class Rvc < Formula
     # prefix.install "plist/com.ribose.rvd.plist"
     # (prefix+"com.ribose.rvd.plist").chmod 0644
     inreplace "conf/rvd.json", /501/, `id -u`.chomp
+    require 'fileutils'
+    require 'pp'
+    ohai "etc is #{etc.pretty_inspect}"
+    ohai "etc/rvd/rvd.json exists? #{File.exists?(etc/"rvd/rvd.json")}"
+    FileUtils.rm(etc/"rvd/rvd.json") if File.exists?(etc/"rvd/rvd.json")
     (etc/"rvd").install "conf/rvd.json"
   end
 
