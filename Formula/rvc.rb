@@ -69,13 +69,13 @@ class Rvc < Formula
     EOS
   end
 
-	def opt_openvpn
-		"/opt/openvpn"
-	end
+  def opt_openvpn
+    "/opt/openvpn"
+  end
 
-	def plist_name
-		"com.ribose.rvd"
-	end
+  def plist_name
+    "com.ribose.rvd"
+  end
 
   #sudo install -m 500 -g wheel -o root #{prefix}/com.ribose.rvd.plist /Library/LaunchDaemons
   def caveats; <<-EOS.undent
@@ -98,10 +98,20 @@ class Rvc < Formula
       sudo launchctl unload /Library/LaunchDaemons/#{plist_name}.plist
       sudo install -m 600 -g wheel -o root #{prefix/(plist_name+".plist")} /Library/LaunchDaemons
       sudo launchctl load -w /Library/LaunchDaemons/#{plist_name}.plist
+
+    To add a VPN named `vpn-a` to #{name}:
+      sudo cp vpn-a.ovpn /opt/rvc/etc/vpn.d/
+      sudo vi /opt/rvc/etc/vpn.d/vpn-a.json
+      {
+        "name": "vpn-a",
+        "auto-connect": true,
+        "pre-connect-exec": ""
+      }
+      sudo chmod 500 /opt/rvc/etc/vpn.d/vpn-a*
     EOS
   end
 
   test do
     system "rvc", "--version"
   end
-e
+end
