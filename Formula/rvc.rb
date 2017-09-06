@@ -77,14 +77,13 @@ class Rvc < Formula
     "com.ribose.rvd"
   end
 
-  #sudo install -m 500 -g wheel -o root #{prefix}/com.ribose.rvd.plist /Library/LaunchDaemons
   def caveats; <<-EOS.undent
     rvc requires to be installed in `/opt` and requires root privileges to start
     run:
       sudo mkdir -m 700 -p #{target_prefix}/bin #{opt_openvpn}/sbin
       sudo mkdir -m 700 -p #{target_prefix}/etc/vpn.d
       sudo chown -R root:wheel #{target_prefix} #{opt_openvpn}/
-      sudo install -m 500 -g wheel -o root #{bin/"rvc"} #{bin/"rvd"} #{target_prefix}/bin
+      sudo install -m 500 -g wheel -o root #{bin/"rvd"} #{target_prefix}/bin
       sudo install -m 600 -g wheel -o root #{etc/"rvd.json"} #{target_prefix}/etc
       sudo install -m 500 -g wheel -o root #{Formula["openvpn"].opt_sbin}/openvpn #{opt_openvpn}/sbin
 
