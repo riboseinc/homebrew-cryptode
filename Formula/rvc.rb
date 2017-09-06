@@ -106,7 +106,8 @@ class Rvc < Formula
         "auto-connect": true,
         "pre-connect-exec": ""
       }
-      sudo chmod 500 /opt/rvc/etc/vpn.d/vpn-a*
+      sudo chmod 600 /opt/rvc/etc/vpn.d/vpn-a.json
+      sudo chmod 600 /opt/rvc/etc/vpn.d/vpn-a.ovpn
     EOS
   end
 
