@@ -33,8 +33,6 @@ class Rvc < Formula
     inreplace "conf/rvd.json", /501/, `id -u`.chomp
     require 'fileutils'
     require 'pp'
-    ohai "etc is #{etc.pretty_inspect}"
-    ohai "etc/rvd/rvd.json exists? #{File.exists?(etc/"rvd/rvd.json")}"
     FileUtils.rm(etc/"rvd/rvd.json") if File.exists?(etc/"rvd/rvd.json")
     (etc/"rvd").install "conf/rvd.json"
   end
@@ -89,6 +87,7 @@ class Rvc < Formula
       sudo mkdir -m 755 -p #{target_prefix}/etc/vpn.d
       sudo chown -R root:wheel #{target_prefix} #{opt_openvpn}/
       sudo install -m 500 -g wheel -o root #{bin/"rvd"} #{target_prefix}/bin
+      sudo install -m 555 -g wheel -o root #{bin/"rvc"} #{target_prefix}/bin
       sudo install -m 600 -g wheel -o root #{etc/"rvd/rvd.json"} #{target_prefix}/etc
       sudo install -m 500 -g wheel -o root #{Formula["openvpn"].opt_sbin}/openvpn #{opt_openvpn}/sbin
 
