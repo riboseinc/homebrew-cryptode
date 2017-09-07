@@ -81,7 +81,7 @@ class Rvc < Formula
   end
 
   def caveats; <<-EOS.undent
-    rvc requires to be installed in `/opt` and requires root privileges to start
+    rvd and rvc requires to be installed in `/opt`
     run:
       sudo mkdir -m 700 -p #{target_prefix}/bin #{opt_openvpn}/sbin
       sudo mkdir -m 755 -p #{target_prefix}/etc/vpn.d
@@ -90,6 +90,9 @@ class Rvc < Formula
       sudo install -m 555 -g wheel -o root #{bin/"rvc"} #{target_prefix}/bin
       sudo install -m 600 -g wheel -o root #{etc/"rvd/rvd.json"} #{target_prefix}/etc
       sudo install -m 500 -g wheel -o root #{Formula["openvpn"].opt_sbin}/openvpn #{opt_openvpn}/sbin
+
+    Ensure that `/opt/rvc/bin` is in your PATH and is set before `/usr/local/bin`. E.g.:
+      PATH=/opt/rvc/bin:/usr/local/bin
 
     To load #{name} at startup, activate the included LaunchDaemon:
 
