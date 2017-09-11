@@ -83,7 +83,7 @@ class Rvc < Formula
   def caveats; <<-EOS.undent
     rvd and rvc requires to be installed in `/opt`
     run:
-      sudo mkdir -m 700 -p #{target_prefix}/bin #{opt_openvpn}/sbin
+      sudo mkdir -m 755 -p #{target_prefix}/bin #{opt_openvpn}/sbin
       sudo mkdir -m 755 -p #{target_prefix}/etc/vpn.d
       sudo chown -R root:wheel #{target_prefix} #{opt_openvpn}/
       sudo install -m 500 -g wheel -o root #{bin/"rvd"} #{target_prefix}/bin
