@@ -1,4 +1,4 @@
-# Homebrew for rvc
+# Homebrew for RVC
 
 This tap contains formulae relating to [rvc](https://github.com/riboseinc/rvc).
 
@@ -24,7 +24,7 @@ brew install --HEAD riboseinc/rvc/rvc
 brew tap riboseinc/rvc
 ```
 
-## Install rvc
+## Install RVC
 
 Currently it is a HEAD-only formula, i.e., you must install it using the `--HEAD` option:
 
