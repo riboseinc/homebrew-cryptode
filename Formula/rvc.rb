@@ -1,5 +1,5 @@
 class Rvc < Formula
-  desc "Ribose VPN Client"
+  desc "RVC: Relaxed VPN Client"
   homepage "https://github.com/riboseinc/rvc"
   # url "https://github.com/riboseinc/rnp/archive/3.99.18.tar.gz"
   # sha256 "b61ae76934d4d125660530bf700478b8e4b1bb40e75a4d60efdb549ec864c506"
@@ -105,16 +105,6 @@ class Rvc < Formula
       sudo install -m 600 -g wheel -o root #{prefix/(plist_name+".plist")} /Library/LaunchDaemons
       sudo launchctl load -w /Library/LaunchDaemons/#{plist_name}.plist
 
-    To add a VPN named `vpn-a` to #{name}:
-      sudo cp vpn-a.ovpn /opt/rvc/etc/vpn.d/
-      sudo vi /opt/rvc/etc/vpn.d/vpn-a.json
-      {
-        "name": "vpn-a",
-        "auto-connect": true,
-        "pre-connect-exec": ""
-      }
-      sudo chmod 600 /opt/rvc/etc/vpn.d/vpn-a.json
-      sudo chmod 600 /opt/rvc/etc/vpn.d/vpn-a.ovpn
     EOS
   end
 
