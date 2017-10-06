@@ -24,8 +24,7 @@ class Rvc < Formula
 
     (buildpath/"m4").mkpath
 
-    system "autoreconf", "-ivf"
-    system "./configure", "--prefix=#{prefix}"
+    system "./build_macos.sh"
     system "make", "install"
 
     # prefix.install "plist/com.ribose.rvd.plist"
