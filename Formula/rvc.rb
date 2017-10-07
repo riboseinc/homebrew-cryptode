@@ -24,7 +24,7 @@ class Rvc < Formula
 
     (buildpath/"m4").mkpath
 
-    system "./build_macos.sh"
+    system './build_macos.sh'
     system "make", "install"
 
     # prefix.install "plist/com.ribose.rvd.plist"
@@ -40,35 +40,6 @@ class Rvc < Formula
 
   def target_prefix
     "/opt/rvc"
-  end
-
-  def plist; <<-EOS.undent
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-  <dict>
-    <key>KeepAlive</key>
-    <dict>
-      <key>SuccessfulExit</key>
-      <false/>
-    </dict>
-    <key>Label</key>
-    <string>#{plist_name}</string>
-    <key>ProgramArguments</key>
-    <array>
-      <string>#{target_prefix}/bin/rvd</string>
-    </array>
-    <key>RunAtLoad</key>
-    <true/>
-    <key>WorkingDirectory</key>
-    <string>/tmp</string>
-    <key>StandardErrorPath</key>
-    <string>/var/log/rvd.log</string>
-    <key>StandardOutPath</key>
-    <string>/var/log/rvd.log</string>
-  </dict>
-</plist>
-    EOS
   end
 
   def opt_openvpn
