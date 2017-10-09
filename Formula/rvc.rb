@@ -16,6 +16,7 @@ class Rvc < Formula
 
   def install
     system './build_macos.sh'
+    system "make", "install"
 
     # prefix.install "plist/com.ribose.rvd.plist"
     # (prefix+"com.ribose.rvd.plist").chmod 0644
