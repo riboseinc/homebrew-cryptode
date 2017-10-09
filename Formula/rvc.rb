@@ -1,8 +1,6 @@
 class Rvc < Formula
   desc "RVC: Relaxed VPN Client"
   homepage "https://github.com/riboseinc/rvc"
-  # url "https://github.com/riboseinc/rnp/archive/3.99.18.tar.gz"
-  # sha256 "b61ae76934d4d125660530bf700478b8e4b1bb40e75a4d60efdb549ec864c506"
   head "https://github.com/riboseinc/rvc.git"
 
   depends_on "autoconf" => :build
@@ -17,13 +15,6 @@ class Rvc < Formula
   end
 
   def install
-    jsonc = Formula["json-c"]
-
-    ENV.append "CFLAGS", "-I#{jsonc.opt_include}/json-c"
-    ENV.append "LDFLAGS", "-L#{jsonc.opt_lib}"
-
-    (buildpath/"m4").mkpath
-
     system './build_macos.sh'
 
     # prefix.install "plist/com.ribose.rvd.plist"
