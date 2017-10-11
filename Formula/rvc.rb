@@ -8,6 +8,7 @@ class Rvc < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "json-c"
+  depends_on "openssl"
   depends_on "openvpn"
 
   devel do
@@ -15,14 +16,16 @@ class Rvc < Formula
   end
 
   def install
-    system './build_macos.sh'
+    system './autogen.sh'
+    system "./configure", "--prefix=#{prefix}",
+            "--with-openssl=#{Formula["openssl"].opt_prefix}"
     system "make", "install"
 
-    inreplace "conf/rvd.json", /501/, `id -u`.chomp
-    require 'fileutils'
-    require 'pp'
-    FileUtils.rm(etc/"rvd/rvd.json") if File.exists?(etc/"rvd/rvd.json")
-    (etc/"rvd").install "conf/rvd.json"
+#    inreplace "etc/rvd.json", /501/, `id -u`.chomp
+#    require 'fileutils'
+#    require 'pp'
+#    FileUtils.rm(etc/"rvd/rvd.json") if File.exists?(etc/"rvd/rvd.json")
+#    (etc/"rvd").install "etc/rvd.json"
   end
 
   plist_options startup: false
