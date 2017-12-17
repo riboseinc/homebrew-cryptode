@@ -1,8 +1,8 @@
 class Rvc < Formula
   desc "RVC: Relaxed VPN Client"
   homepage "https://github.com/riboseinc/rvc"
-  url "https://github.com/riboseinc/rvc/archive/v1.0.1.tar.gz"
-  sha256 "8f1148beb2794dadebe4b8ac739f037cb6e0925ade46173735b7b59bcc3bc1e5"
+  url "https://github.com/riboseinc/rvc/archive/v1.0.2.tar.gz"
+  sha256 "31ca18a7bebdaf27b71d4ca430e2875febb022fb454ca20c49055aff381f622c"
   head "https://github.com/riboseinc/rvc.git"
 
   depends_on "autoconf" => :build
@@ -14,7 +14,7 @@ class Rvc < Formula
   depends_on "openvpn"
 
   devel do
-    version '1.0.1'
+    version '1.0.2'
   end
 
   def install
