@@ -1,5 +1,7 @@
 # Homebrew for RVC
 
+[![Build Status](https://travis-ci.org/riboseinc/homebrew-rvc.svg?branch=master)](https://travis-ci.org/riboseinc/homebrew-rvc)
+
 This tap contains formulae relating to [rvc](https://github.com/riboseinc/rvc).
 
 ## Install Tap
