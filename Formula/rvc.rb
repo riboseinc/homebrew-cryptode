@@ -26,7 +26,7 @@ class Rvc < Formula
 
   plist_options startup: false
 
-  def caveats; <<-EOS.undent
+  def caveats; <<-EOS
     rvd and rvc requires to be installed in `/opt`
     run:
       sudo /usr/local/bin/rvc_install.sh
