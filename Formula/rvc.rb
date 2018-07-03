@@ -1,20 +1,21 @@
 class Rvc < Formula
   desc "RVC: Relaxed VPN Client"
   homepage "https://github.com/riboseinc/rvc"
-  url "https://github.com/riboseinc/rvc/archive/v1.1.2.tar.gz"
-  sha256 "d86e9ee7dfc88c42fd4339a86b578fadb39fc82b21cf9b4c1619a815621880e1"
+  url "https://github.com/riboseinc/rvc/archive/v1.2.0.tar.gz"
+  sha256 "d323eb74b0772e267e8b0e34e08ad536773e76e508dcbf56fc386038ff5e7045"
   head "https://github.com/riboseinc/rvc.git"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
+  depends_on "https://raw.githubusercontent.com/riboseinc/homebrew-libnereon/master/Formula/libnereon.rb"
   depends_on "json-c"
   depends_on "openssl"
   depends_on "openvpn"
 
   devel do
-    version '1.1.1'
+    version '1.2.0'
   end
 
   def install
