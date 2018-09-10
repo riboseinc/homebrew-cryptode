@@ -33,7 +33,7 @@ class Rvc < Formula
       sudo /usr/local/bin/rvc_install.sh
 
     Ensure that `/opt/rvc/bin` is in your PATH and is set before `/usr/local/bin`. E.g.:
-      PATH=/opt/rvc/bin:/usr/local/bin
+      PATH=/opt/rvc/bin:/usr/local/bin:$PATH
 
     If this is an upgrade and you already have the plist loaded:
       sudo /usr/local/bin/rvc_uninstall.sh
