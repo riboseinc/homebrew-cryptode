@@ -1,39 +1,39 @@
 # Homebrew for RVC
 
-[![Build Status](https://travis-ci.org/riboseinc/homebrew-rvc.svg?branch=master)](https://travis-ci.org/riboseinc/homebrew-rvc)
+[![Build Status](https://travis-ci.org/riboseinc/homebrew-cryptode.svg?branch=master)](https://travis-ci.org/riboseinc/homebrew-cryptode)
 
-This tap contains formulae relating to [rvc](https://github.com/riboseinc/rvc).
+This tap contains formulae relating to [cryptode](https://github.com/riboseinc/cryptode).
 
 ## Install Tap
 
 ``` sh
-brew tap riboseinc/rvc
+brew tap riboseinc/cryptode
 ```
 
-## Install RVC
+## Install Cryptode
 
-To install `rvc` from release:
-
-```
-brew install rvc
-```
-
-To install `rvc` from git repository:
+To install `cryptode` from release:
 
 ```
-brew install --HEAD rvc
+brew install cryptode
+```
+
+To install `cryptode` from git repository:
+
+```
+brew install --HEAD cryptode
 ```
 
 Or:
 
 ``` sh
-brew install --HEAD riboseinc/rvc/rvc
+brew install --HEAD riboseinc/cryptode/cryptode
 ```
 
 You can also install via URL:
 
 ``` sh
-brew install --HEAD https://raw.githubusercontent.com/riboseinc/homebrew-rvc/master/rvc.rb
+brew install --HEAD https://raw.githubusercontent.com/riboseinc/homebrew-cryptode/master/cryptode.rb
 ```
 
 ## Acceptable Formulae
