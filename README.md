@@ -1,4 +1,4 @@
-# Homebrew for RVC
+# Homebrew for Cryptode
 
 [![Build Status](https://travis-ci.org/riboseinc/homebrew-cryptode.svg?branch=master)](https://travis-ci.org/riboseinc/homebrew-cryptode)
 
