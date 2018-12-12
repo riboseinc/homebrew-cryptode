@@ -1,8 +1,7 @@
 class Cryptode < Formula
   desc "Cryptode: Protect you using a hidden path"
   homepage "https://github.com/riboseinc/cryptode"
-  url "https://github.com/riboseinc/cryptode/archive/v1.3.0.tar.gz"
-  sha256 "4c3b3770cd0c717beb16136546d4080b2321384613b1759742b8dff22b1acb5c"
+  url "https://github.com/riboseinc/cryptode/archive/v1.3.1.tar.gz"
   head "https://github.com/riboseinc/cryptode.git"
 
   depends_on "autoconf" => :build
@@ -15,7 +14,7 @@ class Cryptode < Formula
   depends_on "openvpn"
 
   devel do
-    version '1.3.0'
+    version '1.3.1'
   end
 
   def install
