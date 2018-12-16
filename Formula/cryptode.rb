@@ -1,7 +1,8 @@
 class Cryptode < Formula
-  desc "Cryptode: Protect you using a hidden path"
+  desc "Cryptode: macOS VPN connection manager"
   homepage "https://github.com/riboseinc/cryptode"
   url "https://github.com/riboseinc/cryptode/archive/v1.3.1.tar.gz"
+  sha256 "40b5f6b9e2df2eed067b4c1673ee2017117291eac47cf453f6f02a4044ba98ef"
   head "https://github.com/riboseinc/cryptode.git"
 
   depends_on "autoconf" => :build
