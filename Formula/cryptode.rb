@@ -2,14 +2,14 @@ class Cryptode < Formula
   desc "Cryptode: macOS VPN connection manager"
   homepage "https://github.com/riboseinc/cryptode"
   url "https://github.com/riboseinc/cryptode/archive/v1.3.1.tar.gz"
-  sha256 "40b5f6b9e2df2eed067b4c1673ee2017117291eac47cf453f6f02a4044ba98ef"
+  sha256 "06ff10c6300b7edd44248c3929b8821b2d9b4426c314d10d0a946e07d3cfb1d4"
   head "https://github.com/riboseinc/cryptode.git"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "https://raw.githubusercontent.com/riboseinc/homebrew-libnereon/master/Formula/libnereon.rb"
+  depends_on "riboseinc/libnereon/libnereon"
   depends_on "json-c"
   depends_on "openssl"
   depends_on "openvpn"
